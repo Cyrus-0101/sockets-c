@@ -37,10 +37,11 @@ int main()
     }
 
     // Configure server address structure
-    sock.sin_addr.s_addr = inet_addr(IP);    // Convert IP to binary form
-    sock.sin_port = htons(PORT);             // Convert port to network byte order
-    sock.sin_family = AF_INET;               // Use IPv4
+    sock.sin_addr.s_addr = inet_addr(IP); // Convert IP to binary form
+    sock.sin_port = htons(PORT);          // Convert port to network byte order
+    sock.sin_family = AF_INET;            // Use IPv4
 
+    // Attempt to establish connection with the server
     if (connect(s, (struct sockaddr *)&sock, sizeof(struct sockaddr_in)) != 0)
     {
         printf("ERROR: connect() error\n");
